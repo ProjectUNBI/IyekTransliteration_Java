@@ -4,5 +4,5 @@ This little peice of programme will help you transliterate the Meeteilon words w
 
 
 
-# To compile the java in command promop use "javac -encoding UTF8 iyek_transliteration.java"
-# after compile run the programme "java iyek_transliteration" in the compiled folder from command prompt
+* To compile the java in command promop use "javac -encoding UTF8 iyek_transliteration.java"
+* after compile run the programme "java iyek_transliteration" in the compiled folder from command prompt
