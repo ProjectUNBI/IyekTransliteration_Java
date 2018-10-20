@@ -56,9 +56,9 @@ public class iyek_transliteration {
 	}
 
 	////////////////////////////////////////
-	///////////// Functions //////////
+	///////////// Functions ////////////////
 	////////////////////////////////////////
-	private static File[] finder(String dirName) {//Function to List all the .ytxt files
+	private static File[] finder(String dirName) {//Function to List all the .txt files
 		File dir = new File(dirName);
 
 		return dir.listFiles(new FilenameFilter() {
@@ -95,7 +95,7 @@ public class iyek_transliteration {
 		arg = arg.toLowerCase(); arg = arg.replaceAll("(?s)\\b([aeiou]r)\\B([^aeiou\\s][^aeiou])(?=.*:\\1=(\\w+)\\b)", "$3>$2"); 
 		arg = arg.replaceAll("(?s)([^âêōåøûœãaeiou\\W])r(?=.*:r\\-(\\w+)\\b)", "<$1$2"); 
 		String[] seperate = arg.split("\\*####\\*"); 
-        arg = seperate[0];
+                arg = seperate[0];
 		arg = arg.replaceAll("(\\w[aeiouâêōåøûœ])", "<$1");
 		arg = arg.replaceAll("([aeiouâêōåøûœ])", "$1>");
 		arg = arg+ "*####*Dictionary:<k=ꯀ:<s=ꯁ:<l=ꯂ:<m=ꯃ:<p=ꯄ:<n=ꯅ:<ç=ꯆ:<t=ꯇ:<õ=ꯈ:<ñ=ꯉ:<θ=ꯊ:<w=ꯋ:<y=ꯌ:<h=ꯍ:<ŋ=ꯐ:<g=ꯒ:<ɫ=ꯓ:<r=ꯔ:<b=ꯕ:<j=ꯖ:<d=ꯗ:<ö=ꯘ:<ð=ꯙ:<v=ꯚ:œ>=ꯥꯎ:a>=ã:e>=ꯦ:â>=ꯥ:ê>=ꯩ:i>=ꯤ:o>=ꯣ:u>=ꯨ:ō>=ꯧ:å>=ꯥꯢ:ø>=ꯣꯢ:û>=ꯨꯢ:>c=ꯛ:>k=ꯛ:>l=ꯜ:>m=ꯝ:>p=ꯞ:>n=ꯟ:>t=ꯠ:>ñ=ꯪ:>x=ꯛꯁ:k=ꯀ:s=ꯁ:l=ꯂ:m=ꯃ:p=ꯄ:n=ꯅ:ç=ꯆ:t=ꯇ:õ=ꯈ:ñ=ꯉ:θ=ꯊ:w=ꯋ:y=ꯌ:h=ꯍ:u=ꯎ:i=ꯏ:f=ꯐ:a=ꯑ:g=ꯒ:ɫ=ꯓ:r=ꯔ:b=ꯕ:x=ꯖ:j=ꯖ:d=ꯗ:ö=ꯘ:ð=ꯙ:v=ꯚ:0=꯰:1=꯱:2=꯲:3=꯳:4=꯴:5=꯵:6=꯶:7=꯷:8=꯸:9=꯹:â=ꯑꯥ:e=ꯑꯦ:o=ꯑꯣ:ê=ꯑꯩ:ō=ꯑꯧ:å=ꯑꯏ:ø=ꯑꯣꯢ:û=ꯎꯢ:œ=ꯑꯥꯎ:.=꯫∆:?=꫱:,=꫰:";
