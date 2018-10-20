@@ -56,7 +56,7 @@ public class iyek_transliteration {
 	}
 
 	////////////////////////////////////////
-	///////////// Functions //////////
+	///////////// Functions ////////////////
 	////////////////////////////////////////
 	private static File[] finder(String dirName) {//Function to List all the .txt files
 		File dir = new File(dirName);
