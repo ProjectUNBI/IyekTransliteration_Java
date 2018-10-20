@@ -9,3 +9,6 @@ This little peice of programme will help you transliterate the Meeteilon words w
 * Or just run the "transliteration.bat" in the compiled folde
 
 N.B. dont forget to install java before proceeding the steps :-)
+
+
+![sketch](https://user-images.githubusercontent.com/30377623/47254903-ad6ada00-d485-11e8-92be-549fce04d9e4.png)
