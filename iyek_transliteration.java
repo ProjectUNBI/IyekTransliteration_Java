@@ -1,17 +1,23 @@
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
 public class iyek_transliteration {
 	public static void main(String[] args) {
 //		System.out.println(System.getProperty("user.dir"));
+//		System.out.println("ꯀ:<s=\u0126");
 		File[] hello = finder(System.getProperty("user.dir"));
-
+		Boolean iffiles=false;
 		for (File file : hello) {
+			iffiles=true;
+			System.out.print("directory:");
 			if (file.isDirectory()) {
 				System.out.print("directory:");
 			} else {
@@ -45,12 +51,14 @@ public class iyek_transliteration {
 			}
 		}
 
+		if(!iffiles) {System.out.print("No accessible files found");}
+
 	}
 
 	////////////////////////////////////////
-	///////////// Functions /////////////////
+	///////////// Functions //////////
 	////////////////////////////////////////
-	public static File[] finder(String dirName) {//Function to List all the .ytxt files
+	private static File[] finder(String dirName) {//Function to List all the .ytxt files
 		File dir = new File(dirName);
 
 		return dir.listFiles(new FilenameFilter() {
@@ -61,7 +69,7 @@ public class iyek_transliteration {
 
 	}
 
-	public static String readFile(String fileName) throws IOException {//Function to read File
+	private static String readFile(String fileName) throws IOException {//Function to read File
 		BufferedReader br = new BufferedReader(new FileReader(fileName));
 		try {
 			StringBuilder sb = new StringBuilder();
@@ -87,7 +95,7 @@ public class iyek_transliteration {
 		arg = arg.toLowerCase(); arg = arg.replaceAll("(?s)\\b([aeiou]r)\\B([^aeiou\\s][^aeiou])(?=.*:\\1=(\\w+)\\b)", "$3>$2"); 
 		arg = arg.replaceAll("(?s)([^âêōåøûœãaeiou\\W])r(?=.*:r\\-(\\w+)\\b)", "<$1$2"); 
 		String[] seperate = arg.split("\\*####\\*"); 
-                arg = seperate[0];
+        arg = seperate[0];
 		arg = arg.replaceAll("(\\w[aeiouâêōåøûœ])", "<$1");
 		arg = arg.replaceAll("([aeiouâêōåøûœ])", "$1>");
 		arg = arg+ "*####*Dictionary:<k=ꯀ:<s=ꯁ:<l=ꯂ:<m=ꯃ:<p=ꯄ:<n=ꯅ:<ç=ꯆ:<t=ꯇ:<õ=ꯈ:<ñ=ꯉ:<θ=ꯊ:<w=ꯋ:<y=ꯌ:<h=ꯍ:<ŋ=ꯐ:<g=ꯒ:<ɫ=ꯓ:<r=ꯔ:<b=ꯕ:<j=ꯖ:<d=ꯗ:<ö=ꯘ:<ð=ꯙ:<v=ꯚ:œ>=ꯥꯎ:a>=ã:e>=ꯦ:â>=ꯥ:ê>=ꯩ:i>=ꯤ:o>=ꯣ:u>=ꯨ:ō>=ꯧ:å>=ꯥꯢ:ø>=ꯣꯢ:û>=ꯨꯢ:>c=ꯛ:>k=ꯛ:>l=ꯜ:>m=ꯝ:>p=ꯞ:>n=ꯟ:>t=ꯠ:>ñ=ꯪ:>x=ꯛꯁ:k=ꯀ:s=ꯁ:l=ꯂ:m=ꯃ:p=ꯄ:n=ꯅ:ç=ꯆ:t=ꯇ:õ=ꯈ:ñ=ꯉ:θ=ꯊ:w=ꯋ:y=ꯌ:h=ꯍ:u=ꯎ:i=ꯏ:f=ꯐ:a=ꯑ:g=ꯒ:ɫ=ꯓ:r=ꯔ:b=ꯕ:x=ꯖ:j=ꯖ:d=ꯗ:ö=ꯘ:ð=ꯙ:v=ꯚ:0=꯰:1=꯱:2=꯲:3=꯳:4=꯴:5=꯵:6=꯶:7=꯷:8=꯸:9=꯹:â=ꯑꯥ:e=ꯑꯦ:o=ꯑꯣ:ê=ꯑꯩ:ō=ꯑꯧ:å=ꯑꯏ:ø=ꯑꯣꯢ:û=ꯎꯢ:œ=ꯑꯥꯎ:.=꯫∆:?=꫱:,=꫰:";
@@ -124,7 +132,9 @@ public class iyek_transliteration {
 			text = text.replaceAll("\n", "\r\n");
 //        	System.out.println(text);
 			// This will output the full path where the file will be written to...
-			writer = new BufferedWriter(new FileWriter(logFile));
+//			writer = new BufferedWriter(new FileWriter(logFile));
+			writer = new BufferedWriter
+				    (new OutputStreamWriter(new FileOutputStream(logFile), StandardCharsets.UTF_8));//it help to use UTF-8 fonts like Meetei mayek
 			writer.write(text);
 		} catch (Exception e) {
 			e.printStackTrace();
