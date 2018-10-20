@@ -5,7 +5,7 @@ This little peice of programme will help you transliterate the Meeteilon words w
 
 
 * To compile the java in command promop use "javac -encoding UTF8 iyek_transliteration.java"
-* After compile run the programme "java iyek_transliteration" in the compiled folder from command prompt
+* After compile, run the programme "java iyek_transliteration" in the compiled folder from command prompt
 * Or just run the "transliteration.bat" in the compiled folde
 
 N.B. dont forget to install java before proceeding the steps :-)
