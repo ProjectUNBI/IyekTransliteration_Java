@@ -9,6 +9,8 @@ This little peice of programme will help you transliterate the Meeteilon words w
 * Or just run the "transliteration.bat" in the compiled folder
 * Or Just run the "transliteration.jar" in folder containing the text file which you need to transliterate.
 
+youtube tutorial: https://www.youtube.com/watch?v=HF32GXRI-CY
+
 N.B. dont forget to install java before proceeding the steps :-)
 
 
